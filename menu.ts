@@ -1,9 +1,14 @@
 import readlinesync = require('readline-sync');
 import { colors } from './src/util/color';
+import { conta } from './conta';
+
 
 export function main(){
 
     let opcao: number;
+
+    let c1: conta= new conta(1, 123, 1, "Vitinho Mlk Problema", 150000000);
+    c1.visualizar();
 
     while (true){
 
