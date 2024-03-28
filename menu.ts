@@ -3,10 +3,16 @@ import { colors } from './src/util/color';
 import { Conta } from './src/model/conta';
 import { ContaCorrente } from './src/model/ContaCorrente';
 import { ContaPoupanca } from './src/model/ContaPoupanca';
+import { ContaController } from './src/controller/ContaController';
 
 export function main(){
 
     let opcao: number;
+
+    let contas: ContaController = new ContaController();
+
+    let cc1: ContaCorrente = new ContaCorrente (2, 123, 1, "Juninho o MAIS MAIS", 15000, 1000);
+
 
     // // Objeto  Conta 
     // const conta: Conta = new Conta(1, 123, 1, "Vitinho Mlk Problema", 10000);
@@ -16,21 +22,21 @@ export function main(){
     // conta.depositar(5000);
     // conta.visualizar();
 
-   // Objeto ContaCorrente 
-    const contacorrente: ContaCorrente = new ContaCorrente(2, 123, 1, "Juninho o MAIS MAIS", 15000, 1000);
-    contacorrente.visualizar();
-    contacorrente.sacar(2000);
-    contacorrente.visualizar();
-    contacorrente.depositar(1000);
-    contacorrente.visualizar();
+//    // Objeto ContaCorrente 
+//     const contacorrente: ContaCorrente = new ContaCorrente(2, 123, 1, "Juninho o MAIS MAIS", 15000, 1000);
+//     contacorrente.visualizar();
+//     contacorrente.sacar(2000);
+//     contacorrente.visualizar();
+//     contacorrente.depositar(1000);
+//     contacorrente.visualizar();
 
-    // Objeto ContaPoupanca 
-    const contapoupanca: ContaPoupanca = new ContaPoupanca(3, 123, 2, "Kleber BamBam", 1000, 10);
-    contapoupanca.visualizar();
-    contapoupanca.sacar(200);
-    contapoupanca.visualizar();
-    contapoupanca.depositar(1000);
-    contapoupanca.visualizar();
+//     // Objeto ContaPoupanca 
+//     const contapoupanca: ContaPoupanca = new ContaPoupanca(3, 123, 2, "Kleber BamBam", 1000, 10);
+//     contapoupanca.visualizar();
+//     contapoupanca.sacar(200);
+//     contapoupanca.visualizar();
+//     contapoupanca.depositar(1000);
+//     contapoupanca.visualizar();
 
     while (true){
 
@@ -70,41 +76,51 @@ export function main(){
                 console.log(colors.bg.white, colors.fg.greenstrong,
                     '\n\nCriar Conta\n\n', colors.reset);
 
+                keyPress()
                 break;
             case 2:
                 console.log(colors.bg.white, colors.fg.greenstrong,
                     '\n\nListar Contas\n\n', colors.reset);
-                
+
+                    contas.listarTodas();
+
+                    keyPress()                
                 break;
             case 3:
                 console.log(colors.bg.white, colors.fg.greenstrong,
                     '\n\nBUSCAR CONTA POR NÚMERO\n\n', colors.reset);
-                
+                   
+                    keyPress()
                 break;
             case 4:
                 console.log(colors.bg.white, colors.fg.greenstrong,
                     '\n\nATUALIZAR SEUS DADOS\n\n', colors.reset);
                 
+                    keyPress()
                 break;
             case 5:
                 console.log(colors.bg.white, colors.fg.greenstrong,
                     '\n\nEXCLUIR CONTA\n\n', colors.reset);
                 
+                    keyPress()
                 break;
             case 6:
                 console.log(colors.bg.white, colors.fg.greenstrong,
                     '\n\nSACAR\n\n', colors.reset);
                 
+                    keyPress()
                 break;
             case 7:
                 console.log(colors.bg.white, colors.fg.greenstrong,
                     '\n\nDEPOSITAR\n\n', colors.reset);
                 
+                    keyPress()
                 break;
             case 8:
                 console.log(colors.bg.white, colors.fg.greenstrong,
                     '\n\nTRANSFERIR ENTRE CONTAS\n\n', colors.reset);
                 
+                    keyPress()
                 break;
             default:
                 console.log(colors.bg.white, colors.fg.greenstrong,
