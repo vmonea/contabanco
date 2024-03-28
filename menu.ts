@@ -1,14 +1,36 @@
 import readlinesync = require('readline-sync');
 import { colors } from './src/util/color';
-import { conta } from './conta';
-
+import { Conta } from './src/model/conta';
+import { ContaCorrente } from './src/model/ContaCorrente';
+import { ContaPoupanca } from './src/model/ContaPoupanca';
 
 export function main(){
 
     let opcao: number;
 
-    let c1: conta= new conta(1, 123, 1, "Vitinho Mlk Problema", 150000000);
-    c1.visualizar();
+    // // Objeto  Conta 
+    // const conta: Conta = new Conta(1, 123, 1, "Vitinho Mlk Problema", 10000);
+    // conta.visualizar();
+    // conta.sacar(10500);
+    // conta.visualizar();
+    // conta.depositar(5000);
+    // conta.visualizar();
+
+   // Objeto ContaCorrente 
+    const contacorrente: ContaCorrente = new ContaCorrente(2, 123, 1, "Juninho o MAIS MAIS", 15000, 1000);
+    contacorrente.visualizar();
+    contacorrente.sacar(2000);
+    contacorrente.visualizar();
+    contacorrente.depositar(1000);
+    contacorrente.visualizar();
+
+    // Objeto ContaPoupanca 
+    const contapoupanca: ContaPoupanca = new ContaPoupanca(3, 123, 2, "Kleber BamBam", 1000, 10);
+    contapoupanca.visualizar();
+    contapoupanca.sacar(200);
+    contapoupanca.visualizar();
+    contapoupanca.depositar(1000);
+    contapoupanca.visualizar();
 
     while (true){
 
