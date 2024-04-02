@@ -3,6 +3,15 @@ import { ContaRepository } from "../repository/ContaRepository";
 import { colors } from "../util/color";
 
 export class ContaController implements ContaRepository {
+    
+    procurarPorTitular(titular: string) {
+        let listaContasPorTitular = this.listaContas.filter(c =>
+            c.titular.toUpperCase().includes(titular.toUpperCase()))
+
+        for (let conta of listaContasPorTitular){
+            conta.visualizar();
+        }
+    }
 
 
     // Collection Array que armazenará os Objetos das Classes
@@ -50,7 +59,7 @@ export class ContaController implements ContaRepository {
         let buscaConta = this.buscarNoArray(numero);
         
         if(buscaConta !== null){
-            this.listaContas.splice(this.listaContas.indexOf(buscaConta), 1) // o 1 serve para apagar apenas ele, se colocasse 2 por exemplo, apagaria ele e o próximo
+            this.listaContas.splice(this.listaContas.indexOf(buscaConta), 1) // o 1 serve para apagar apenas ele, se colocasse 2, apagaria duas unidades e assim por diante.
             console.log(`A conta número ${numero} foi excluída com sucesso!`)
         }else
             console.log("\nConta não foi encontrada!")
@@ -62,11 +71,11 @@ export class ContaController implements ContaRepository {
 		if (conta != null) {
 			
 			if(conta.sacar(valor) == true)
-            console.log(colors.bg.white, colors.fg.greenstrong,"\nO Saque na Conta numero: " + numero + 
+            console.log(colors.fg.greenstrong,"\nO Saque na Conta numero: " + numero + 
                         " foi efetuado com sucesso!", colors.reset);		
 		
 		}else
-        console.log(colors.bg.white, colors.fg.greenstrong,"\nA Conta numero: " + numero + 
+        console.log(colors.fg.greenstrong,"\nA Conta numero: " + numero + 
                     " não foi encontrada!", colors.reset);
         
     }
@@ -76,7 +85,7 @@ export class ContaController implements ContaRepository {
 
         if (conta != null){
                 conta.depositar(valor);
-                console.log(colors.bg.white, colors.fg.greenstrong,"\nO Depósito na Conta numero: " + numero + 
+                console.log(colors.fg.greenstrong,"\nO Depósito na Conta numero: " + numero + 
                 " foi efetuado com sucesso!", colors.reset);	
         }else
         console.log(colors.fg.red,"\nA Conta numero: " + numero + 
@@ -90,13 +99,13 @@ export class ContaController implements ContaRepository {
 		if (contaOrigem != null && contaDestino != null) {
             if(contaOrigem.sacar(valor) == true){
                 contaDestino.depositar(valor);
-                console.log(colors.bg.white, colors.fg.greenstrong,"\nA Transferência da Conta numero: " + numeroOrigem + 
+                console.log(colors.fg.greenstrong,"\nA Transferência da Conta numero: " + numeroOrigem + 
                             " para a Conta numero: " + numeroDestino + " foi efetuada com sucesso!", 
                             colors.reset);		
             }
 		
 		}else
-        console.log(colors.bg.white, colors.fg.greenstrong,"\nA Conta numero: " + numeroOrigem + 
+        console.log(colors.fg.greenstrong,"\nA Conta numero: " + numeroOrigem + 
                     " e/ou a Conta numero: " + numeroDestino + " não foram encontradas!", 
                     colors.reset);
     }

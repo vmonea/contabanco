@@ -44,10 +44,10 @@ export function main(){
 
     while (true){
 
-        console.log(colors.bg.white, colors.fg.greenstrong,
-            '****************************************        ');
+        console.log(colors.fg.greenstrong,
+                '****************************************'                          );
         console.log('               BANCO VERDE              ');
-        console.log('****************************************');
+        console.log(' ****************************************');
         console.log('                                        ');
         console.log('  1 - CRIAR CONTA                       ');
         console.log('  2 - LISTAR CONTAS                     ');
@@ -57,19 +57,29 @@ export function main(){
         console.log('  6 - SACAR                             ');
         console.log('  7 - DEPOSITAR                         ');
         console.log('  8 - TRANSFERIR ENTRE CONTAS           ');
-        console.log('  9 - SAIR                              ');
+        console.log('  9 - BUSCAR CONTAS POR TITULAR         ');
+        console.log('  0 - SAIR                              ');
         console.log('                                        ');
         console.log('****************************************');
         console.log('                                        ',
         colors.reset);
 
-        console.log(colors.bg.white, colors.fg.greenstrong, 
+        console.log(colors.fg.greenstrong, 
             ' Selecione a opção desejada:', colors.reset);
         opcao = readlinesync.questionInt('');
 
-        if (opcao ==9){
-            console.log(colors.bg.white, colors.fg.greenstrong, 
-                '\n Verde como a Natureza, Forte como o Palmeiras: Banco Verde - Semeando Prosperidade em seu Caminho ');
+        if (opcao ==0){
+            console.log(colors.fg.greenstrong, 
+                '\n****************************************');
+            console.log(colors.fg.greenstrong, 
+                '\n      VERDE COMO A NATUREZA     ');
+            console.log(colors.fg.greenstrong, 
+                '\n      FORTE COMO O PALMEIRAS    ');
+            console.log(colors.fg.greenstrong, 
+                '\n           BANCO VERDE           ');
+            console.log(colors.fg.greenstrong, 
+                '\n SEMEANDO PROSPERIDADE EM SEU CAMINHO ');
+            console.log('                                        ')
             sobre();
             console.log(colors.reset,'');
             process.exit(0);
@@ -77,7 +87,7 @@ export function main(){
 
         switch(opcao){
             case 1:
-                console.log(colors.fg.whitestrong, "\n\nCriar Conta\n\n", colors.reset);
+                console.log(colors.fg.greenstrong, "\n\nCriar Conta\n\n", colors.reset);
 
                 console.log("Digite o número da Agência: ")
                 agencia = readlinesync.questionInt("")
@@ -113,7 +123,7 @@ export function main(){
                 break;
 
             case 2:
-                console.log(colors.bg.white, colors.fg.greenstrong,
+                console.log(colors.fg.greenstrong,
                     '\n\nListar Contas\n\n', colors.reset);
 
                     contas.listarTodas();
@@ -121,7 +131,7 @@ export function main(){
                     keyPress()                
                 break;
             case 3:
-                console.log(colors.bg.white, colors.fg.greenstrong,
+                console.log(colors.fg.greenstrong,
                     '\n\nBUSCAR CONTA POR NÚMERO\n\n', colors.reset);
 
                     console.log("Digite o Número da Conta: ");
@@ -132,7 +142,7 @@ export function main(){
                     keyPress()
                 break;
             case 4:
-                console.log(colors.bg.white, colors.fg.greenstrong,
+                console.log(colors.fg.greenstrong,
                     '\n\nATUALIZAR SEUS DADOS\n\n', colors.reset);
                     console.log("Digite o Número da Conta: ")
                     numero = readlinesync.questionInt("")
@@ -177,7 +187,7 @@ export function main(){
                 break;
 
             case 5:
-                console.log(colors.bg.white, colors.fg.greenstrong,
+                console.log(colors.fg.greenstrong,
                     '\n\nEXCLUIR CONTA\n\n', colors.reset);
                     
                 console.log("Digite o Número da Conta: ")
@@ -188,7 +198,7 @@ export function main(){
                 keyPress()
                 break;
             case 6:
-                console.log(colors.bg.white, colors.fg.greenstrong,
+                console.log(colors.fg.greenstrong,
                     '\n\nSACAR\n\n', colors.reset);
 
                     console.log("Digite o número: ");
@@ -202,19 +212,19 @@ export function main(){
                     keyPress()
                 break;
             case 7:
-                console.log(colors.bg.white, colors.fg.greenstrong,
+                console.log(colors.fg.greenstrong,
                     '\n\nDEPOSITAR\n\n', colors.reset);
 
                     console.log("Digite o número da conta: ");
                     numero = readlinesync.questionInt("");
 
-                    console.log("\nDifite o valor do Depósito (R$): ");
+                    console.log("\nDigite o valor do Depósito (R$): ");
                     valor = readlinesync.questionFloat("");
                 
                     keyPress()
                 break;
             case 8:
-                console.log(colors.bg.white, colors.fg.greenstrong,
+                console.log(colors.fg.greenstrong,
                     '\n\nTRANSFERIR ENTRE CONTAS\n\n', colors.reset);
 
                     console.log("Digite o número da Conta de Origem: ");
@@ -231,8 +241,18 @@ export function main(){
                 
                     keyPress()
                     break;
+            case 9:
+                console.log(colors.fg.greenstrong,
+                    '\n\nCONSULTAR CONTA POR TITULAR\n\n', colors.reset);
+
+                    console.log("Digite o Nome do Titular: ")
+                    titular = readlinesync.question("")
+
+                    contas.procurarPorTitular(titular);
+
+                    break;
             default:
-                console.log(colors.bg.white, colors.fg.greenstrong,
+                console.log(colors.fg.greenstrong,
                     '\nOpção Inválida!\n', colors.reset);
                     
                 break;

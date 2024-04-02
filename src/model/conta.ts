@@ -1,5 +1,8 @@
 import { colors } from '../util/color';
 export abstract class Conta{
+    static visualizar() {
+        throw new Error("Method not implemented.");
+    }
 
     private _numero: number;
     private _agencia: number;
@@ -123,7 +126,7 @@ export abstract class Conta{
                 break;
         }
 
-       console.log(colors.bg.white, colors.fg.greenstrong,
+       console.log(colors.fg.greenstrong,
         '***********************************');
        console.log('DADOS DA CONTA');
        console.log('***********************************');
