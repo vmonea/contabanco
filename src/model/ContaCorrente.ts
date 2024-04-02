@@ -1,4 +1,5 @@
 import { Conta } from "./conta";
+import { colors } from "../util/color";
 
 export class ContaCorrente extends Conta{
 
@@ -37,7 +38,8 @@ export class ContaCorrente extends Conta{
 
     public visualizar(): void {
         super.visualizar();
-        console.log("Limite da conta corrente: " + this._limite.toFixed());
+        console.log(colors.fg.greenstrong,
+        "LIMITE DA CONTA: " + this._limite.toFixed());
         
     }
 

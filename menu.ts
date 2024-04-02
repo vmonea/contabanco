@@ -15,32 +15,21 @@ export function main(){
     // Instancia (criação da classe controller)
     let contas: ContaController = new ContaController();
 
-    let cc1: ContaCorrente = new ContaCorrente (2, 123, 1, "Juninho o MAIS MAIS", 15000, 1000);
+    console.log("\nCriar Contas\n");
 
+let cc1: ContaCorrente = new ContaCorrente(contas.gerarNumero(), 123, 1, "João de Santo Cristo", 1000, 100.0);
+contas.cadastrar(cc1);
 
-    // // Objeto  Conta 
-    // const conta: Conta = new Conta(1, 123, 1, "Vitinho Mlk Problema", 10000);
-    // conta.visualizar();
-    // conta.sacar(10500);
-    // conta.visualizar();
-    // conta.depositar(5000);
-    // conta.visualizar();
+let cc2: ContaCorrente = new ContaCorrente(contas.gerarNumero(), 124, 1, "Kleber BamBam", 2000, 100.0);
+contas.cadastrar(cc2);
 
-//    // Objeto ContaCorrente 
-//     const contacorrente: ContaCorrente = new ContaCorrente(2, 123, 1, "Juninho o MAIS MAIS", 15000, 1000);
-//     contacorrente.visualizar();
-//     contacorrente.sacar(2000);
-//     contacorrente.visualizar();
-//     contacorrente.depositar(1000);
-//     contacorrente.visualizar();
+let cp1: ContaPoupanca = new ContaPoupanca(contas.gerarNumero(), 125, 2, "Whindersson Nunes", 4000, 12);
+contas.cadastrar(cp1);
 
-//     // Objeto ContaPoupanca 
-//     const contapoupanca: ContaPoupanca = new ContaPoupanca(3, 123, 2, "Kleber BamBam", 1000, 10);
-//     contapoupanca.visualizar();
-//     contapoupanca.sacar(200);
-//     contapoupanca.visualizar();
-//     contapoupanca.depositar(1000);
-//     contapoupanca.visualizar();
+let cp2: ContaPoupanca = new ContaPoupanca(contas.gerarNumero(), 125, 2, "Matheus Brasileiro, VULGO MATUE", 8000, 15);
+contas.cadastrar(cp2);
+
+contas.listarTodas();
 
     while (true){
 

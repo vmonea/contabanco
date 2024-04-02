@@ -17,7 +17,7 @@ export class ContaController implements ContaRepository {
     // Collection Array que armazenará os Objetos das Classes
     // ContaCorrente e ContaPoupanca
     private listaContas: Array<Conta> = new Array<Conta>();
-    public numero: number = 0;
+    numero: number = 0;
 
     procurarPorNumero(numero: number): void {
         let buscaConta = this.buscarNoArray(numero);
@@ -42,7 +42,8 @@ export class ContaController implements ContaRepository {
     // na Collection listaContas
     cadastrar(conta: Conta): void {
         this.listaContas.push(conta);
-        console.log("A Conta foi adicionada!");
+        console.log(colors.fg.greenstrong,
+            "A Conta número"  +conta.numero+  "foi criada com sucesso!");
     }
     
     atualizar(conta: Conta): void {
@@ -50,9 +51,11 @@ export class ContaController implements ContaRepository {
 
         if(buscaConta !== null){
             this.listaContas[this.listaContas.indexOf(buscaConta)] = conta;
-            console.log(`A conta número ${conta.numero} foi atualizada com sucesso!`)
+            console.log(colors.fg.greenstrong,
+                `A conta número ${conta.numero} foi atualizada com sucesso!`)
         }else
-            console.log("\nConta não foi encontrada!")
+            console.log(colors.fg.greenstrong,
+                "\nConta não foi encontrada!")
     }
     
     deletar(numero: number): void {
